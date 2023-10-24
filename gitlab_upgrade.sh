@@ -33,7 +33,7 @@ if [[ $DIGEST_CURRENT != $DIGEST_LATEST ]]
 
 	# start pulling new version in background:
 	docker pull ${GITLAB_EDITION}:latest
-	/usr/bin/telegram-send "GitLab ${VERSION_CURRENT} upgrade started..." >/dev/null
+	/usr/bin/telegram-send-message.sh "GitLab ${VERSION_CURRENT} upgrade started..." >/dev/null
 	
 	# Restart docker-compose with latest Gitlab image:
 	cd $GITLAB_HOME && \
@@ -50,6 +50,6 @@ if [[ $DIGEST_CURRENT != $DIGEST_LATEST ]]
 	echo -e "\e[32mGitLab successfully upgraded to version: $VERSION_LATEST\e[0m" && \
 	echo -e "\e[33m------------------------------------------------ \e[0m"
 	MESSAGE="GitLab version:$VERSION_CURRENT has been successfully upgraded to version: $VERSION_LATEST" && \
-	/usr/bin/telegram-send "${MESSAGE}" >/dev/null
+	/usr/bin/telegram-send-message.sh "${MESSAGE}" >/dev/null
 fi
 exit 0
