@@ -1,2 +1,2 @@
 # Gitlab_Upgrade
-Update self-hosted Gitlab-server automatically
+Notes: install curl and jq to use this script.
